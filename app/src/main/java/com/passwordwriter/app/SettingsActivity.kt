@@ -1,6 +1,8 @@
 package com.passwordwriter.app
 
+import android.content.Context
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -12,16 +14,21 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.textfield.TextInputEditText
 import com.passwordwriter.app.PasswordWriterApp
 import com.passwordwriter.app.data.BackupManager
+import com.passwordwriter.app.data.CategoryManager
 import com.passwordwriter.app.ui.adapters.CategoryAdapter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 class SettingsActivity : AppCompatActivity() {
 
+    private lateinit var languageGroup: RadioGroup
     private lateinit var themeGroup: RadioGroup
+    private lateinit var passwordLockSwitch: SwitchMaterial
     private lateinit var exportButton: MaterialButton
     private lateinit var importButton: MaterialButton
     private lateinit var categoryList: RecyclerView
@@ -58,11 +65,33 @@ class SettingsActivity : AppCompatActivity() {
 
         backupManager = BackupManager(this)
 
+        languageGroup = findViewById(R.id.languageGroup)
         themeGroup = findViewById(R.id.themeGroup)
+        passwordLockSwitch = findViewById(R.id.passwordLockSwitch)
         exportButton = findViewById(R.id.exportButton)
         importButton = findViewById(R.id.importButton)
         categoryList = findViewById(R.id.categoryList)
 
+        // Language
+        val currentLang = getSharedPreferences("settings", MODE_PRIVATE).getString("language", "en") ?: "en"
+        when (currentLang) {
+            "it" -> languageGroup.check(R.id.langItalian)
+            "ru" -> languageGroup.check(R.id.langRussian)
+            else -> languageGroup.check(R.id.langEnglish)
+        }
+
+        languageGroup.setOnCheckedChangeListener { _, checkedId ->
+            val lang = when (checkedId) {
+                R.id.langItalian -> "it"
+                R.id.langRussian -> "ru"
+                else -> "en"
+            }
+            getSharedPreferences("settings", MODE_PRIVATE).edit().putString("language", lang).apply()
+            setLocale(lang)
+            Toast.makeText(this, getString(R.string.applied), Toast.LENGTH_SHORT).show()
+        }
+
+        // Theme
         when (ThemeManager.getTheme(this)) {
             "light" -> themeGroup.check(R.id.themeLight)
             "vintage" -> themeGroup.check(R.id.themeVintage)
@@ -76,9 +105,17 @@ class SettingsActivity : AppCompatActivity() {
                 else -> "dark"
             }
             ThemeManager.saveTheme(this, theme)
-            Toast.makeText(this, getString(R.string.applied), Toast.LENGTH_SHORT).show()
+            recreate()
         }
 
+        // Password lock
+        val lockEnabled = getSharedPreferences("settings", MODE_PRIVATE).getBoolean("password_lock", true)
+        passwordLockSwitch.isChecked = lockEnabled
+        passwordLockSwitch.setOnCheckedChangeListener { _, isChecked ->
+            getSharedPreferences("settings", MODE_PRIVATE).edit().putBoolean("password_lock", isChecked).apply()
+        }
+
+        // Backup
         exportButton.setOnClickListener {
             exportLauncher.launch("PasswordWriter_Backup.pwb")
         }
@@ -97,9 +134,10 @@ class SettingsActivity : AppCompatActivity() {
                 val categories = app.repository.getAllCategories().first()
                 categoryList.layoutManager = LinearLayoutManager(this@SettingsActivity)
                 categoryList.adapter = CategoryAdapter(
+                    context = this@SettingsActivity,
                     categories = categories,
                     onRename = { oldName -> showRenameDialog(oldName) },
-                    onDelete = { category -> showDeleteCategoryDialog(category) }
+                    onEdit = { category -> showCategoryEditDialog(category) }
                 )
             } catch (_: Exception) { }
         }
@@ -119,6 +157,56 @@ class SettingsActivity : AppCompatActivity() {
             .show()
     }
 
+    private fun showCategoryEditDialog(category: String) {
+        val currentIcon = CategoryManager.getIcon(this, category)
+        val currentColor = CategoryManager.getColor(this, category)
+
+        val icons = CategoryManager.AVAILABLE_ICONS
+        val iconNames = icons.map { it.replaceFirstChar { c -> c.uppercase() } }
+        val iconDrawables = icons.map { CategoryManager.getIconDrawableId(it) }
+
+        val colors = CategoryManager.AVAILABLE_COLORS
+        val colorNames = colors.map { String.format("#%06X", 0xFFFFFF and it) }
+
+        val items = arrayOf(
+            getString(R.string.category_rename),
+            getString(R.string.category_choose_icon),
+            getString(R.string.category_choose_color)
+        )
+
+        AlertDialog.Builder(this)
+            .setTitle(category)
+            .setItems(items) { _, which ->
+                when (which) {
+                    0 -> showRenameDialog(category)
+                    1 -> showIconPicker(category, icons, iconNames)
+                    2 -> showColorPicker(category, colors)
+                }
+            }
+            .show()
+    }
+
+    private fun showIconPicker(category: String, icons: List<String>, names: List<String>) {
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.category_choose_icon))
+            .setItems(names.toTypedArray()) { _, which ->
+                CategoryManager.setIcon(this, category, icons[which])
+                loadCategories()
+            }
+            .show()
+    }
+
+    private fun showColorPicker(category: String, colors: List<Int>) {
+        val colorNames = colors.map { String.format("#%06X", 0xFFFFFF and it) }
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.category_choose_color))
+            .setItems(colorNames.toTypedArray()) { _, which ->
+                CategoryManager.setColor(this, category, colors[which])
+                loadCategories()
+            }
+            .show()
+    }
+
     private fun showRenameDialog(oldName: String) {
         val input = TextInputEditText(this)
         input.setText(oldName)
@@ -132,7 +220,9 @@ class SettingsActivity : AppCompatActivity() {
                 if (newName.isNotEmpty() && newName != oldName) {
                     lifecycleScope.launch {
                         try {
-                            (application as PasswordWriterApp).repository.renameCategory(oldName, newName)
+                            val app = application as PasswordWriterApp
+                            CategoryManager.renameCategory(this@SettingsActivity, oldName, newName)
+                            app.repository.renameCategory(oldName, newName)
                             loadCategories()
                         } catch (_: Exception) { }
                     }
@@ -142,28 +232,13 @@ class SettingsActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun showDeleteCategoryDialog(category: String) {
-        val options = arrayOf(
-            getString(R.string.category_move_to_general),
-            getString(R.string.category_delete_all)
-        )
-        AlertDialog.Builder(this)
-            .setTitle(getString(R.string.category_delete_options))
-            .setItems(options) { _, which ->
-                lifecycleScope.launch {
-                    try {
-                        val app = application as PasswordWriterApp
-                        if (which == 0) {
-                            app.repository.reassignCategory(category, "General")
-                        } else {
-                            app.repository.deleteCategory(category)
-                        }
-                        loadCategories()
-                    } catch (_: Exception) { }
-                }
-            }
-            .setNegativeButton(getString(R.string.cancel_btn), null)
-            .show()
+    private fun setLocale(lang: String) {
+        val locale = Locale(lang)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+        recreate()
     }
 
     companion object {

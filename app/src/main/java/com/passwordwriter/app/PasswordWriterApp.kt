@@ -1,10 +1,12 @@
 package com.passwordwriter.app
 
 import android.app.Application
+import android.content.res.Configuration
 import android.util.Log
 import com.passwordwriter.app.data.AppDatabase
 import com.passwordwriter.app.data.CryptoManager
 import com.passwordwriter.app.data.PasswordRepository
+import java.util.Locale
 
 class PasswordWriterApp : Application() {
 
@@ -17,6 +19,8 @@ class PasswordWriterApp : Application() {
         super.onCreate()
         instance = this
 
+        applyLanguage()
+
         try {
             val db = AppDatabase.getInstance(this)
             val crypto = CryptoManager()
@@ -26,6 +30,16 @@ class PasswordWriterApp : Application() {
         } catch (e: Exception) {
             Log.e("PasswordWriter", "Init error", e)
         }
+    }
+
+    private fun applyLanguage() {
+        val lang = getSharedPreferences("settings", MODE_PRIVATE)
+            .getString("language", "en") ?: "en"
+        val locale = Locale(lang)
+        Locale.setDefault(locale)
+        val config = Configuration()
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
     }
 
     companion object {

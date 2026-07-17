@@ -33,6 +33,12 @@ class LockScreenActivity : AppCompatActivity() {
             return
         }
 
+        val lockEnabled = getSharedPreferences("settings", MODE_PRIVATE).getBoolean("password_lock", true)
+        if (!lockEnabled) {
+            navigateToMain()
+            return
+        }
+
         passwordInput = findViewById(R.id.masterPasswordInput)
         errorText = findViewById(R.id.errorText)
         unlockButton = findViewById(R.id.unlockButton)

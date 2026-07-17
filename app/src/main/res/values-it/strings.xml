@@ -94,6 +94,7 @@
     <string name="password_lock_title">Blocco password</string>
     <string name="password_lock_desc">Richiedi la password principale per aprire l\'app</string>
 
+    <string name="language_label">Lingua</string>
     <string name="theme_label">Tema</string>
     <string name="backup_label">Backup</string>
     <string name="action_export">Esporta backup</string>

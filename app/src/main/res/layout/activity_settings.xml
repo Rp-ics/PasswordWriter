@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
@@ -9,10 +10,46 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <!-- Language -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:text="@string/language_label"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/languageGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/langEnglish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="English" />
+
+            <RadioButton
+                android:id="@+id/langItalian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Italiano" />
+
+            <RadioButton
+                android:id="@+id/langRussian"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Русский" />
+        </RadioGroup>
+
+        <!-- Theme -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/theme_label"
             android:textSize="18sp"
@@ -44,6 +81,56 @@
                 android:text="@string/theme_vintage" />
         </RadioGroup>
 
+        <!-- Security -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/security_section"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardElevation="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/password_lock_title"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/password_lock_desc"
+                        android:textSize="12sp"
+                        android:alpha="0.6" />
+                </LinearLayout>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/passwordLockSwitch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Backup -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -66,6 +153,7 @@
             android:layout_marginBottom="24dp"
             android:text="@string/action_import" />
 
+        <!-- Categories -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

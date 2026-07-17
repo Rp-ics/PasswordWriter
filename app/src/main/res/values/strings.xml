@@ -106,6 +106,7 @@
     <string name="password_lock_desc">Require master password to open app</string>
 
     <!-- Settings -->
+    <string name="language_label">Language</string>
     <string name="theme_label">Theme</string>
     <string name="backup_label">Backup</string>
     <string name="action_export">Export backup</string>

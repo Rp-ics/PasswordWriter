@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                 val categories = app.repository.getAllCategories().first()
                 findViewById<RecyclerView>(R.id.categoryRecyclerView)?.apply {
                     layoutManager = LinearLayoutManager(this@MainActivity)
-                    adapter = CategoryAdapter(categories, { cat ->
+                    adapter = CategoryAdapter(this@MainActivity, categories, { cat ->
                         showCategoryPasswords(cat)
                     }, { cat ->
                         showCategoryOptions(cat)

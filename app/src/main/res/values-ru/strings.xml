@@ -94,6 +94,7 @@
     <string name="password_lock_title">Блокировка паролем</string>
     <string name="password_lock_desc">Требовать мастер-пароль при открытии</string>
 
+    <string name="language_label">Язык</string>
     <string name="theme_label">Тема</string>
     <string name="backup_label">Резервное копирование</string>
     <string name="action_export">Экспорт</string>
