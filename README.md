@@ -116,9 +116,6 @@ The backup uses the same AES-256-GCM encryption as the vault.
 ## 📄 License
 
 MIT License — see [LICENSE](LICENSE).
-
-Copyright © 2026 [Rp-ics](https://github.com/Rp-ics)
-
 ---
 
 ## 🤝 Contributing
