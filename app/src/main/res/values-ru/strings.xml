@@ -94,6 +94,7 @@
     <string name="security_section">Безопасность</string>
     <string name="password_lock_title">Блокировка паролем</string>
     <string name="password_lock_desc">Требовать мастер-пароль при открытии</string>
+    <string name="password_lock_guide">Мастер-пароль защищает все сохранённые пароли. Он нужен для разблокировки приложения, экспорта резервных копий и импорта данных. Обязательно запомните его, так как восстановить его нельзя.</string>
 
     <string name="language_label">Язык</string>
     <string name="theme_label">Тема</string>
@@ -123,6 +124,9 @@
 
     <string name="error_generic">Ошибка: %1$s</string>
     <string name="error_init">Ошибка инициализации</string>
+
+    <string name="guide">Руководство</string>
+    <string name="ok_btn">OK</string>
 
     <string name="type_service_description">Используется только для ввода паролей в текстовые поля. PasswordWriter не собирает данные, не имеет доступа к интернету и не сохраняет вводимую информацию. 100% офлайн.</string>
     <string name="no_passwords">Нет паролей. Добавьте!</string>

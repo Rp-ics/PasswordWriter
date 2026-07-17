@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.RadioGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -13,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.textfield.TextInputEditText
 import com.passwordwriter.app.PasswordWriterApp
 import com.passwordwriter.app.data.BackupManager
@@ -26,7 +24,6 @@ class SettingsActivity : BaseActivity() {
 
     private lateinit var languageGroup: RadioGroup
     private lateinit var themeGroup: RadioGroup
-    private lateinit var passwordLockSwitch: SwitchMaterial
     private lateinit var exportButton: MaterialButton
     private lateinit var importButton: MaterialButton
     private lateinit var categoryList: RecyclerView
@@ -64,7 +61,6 @@ class SettingsActivity : BaseActivity() {
 
         languageGroup = findViewById(R.id.languageGroup)
         themeGroup = findViewById(R.id.themeGroup)
-        passwordLockSwitch = findViewById(R.id.passwordLockSwitch)
         exportButton = findViewById(R.id.exportButton)
         importButton = findViewById(R.id.importButton)
         categoryList = findViewById(R.id.categoryList)
@@ -104,11 +100,9 @@ class SettingsActivity : BaseActivity() {
             restartApp()
         }
 
-        // Password lock
-        val lockEnabled = getSharedPreferences("settings", MODE_PRIVATE).getBoolean("password_lock", true)
-        passwordLockSwitch.isChecked = lockEnabled
-        passwordLockSwitch.setOnCheckedChangeListener { _, isChecked ->
-            getSharedPreferences("settings", MODE_PRIVATE).edit().putBoolean("password_lock", isChecked).apply()
+        // Password Lock Guide
+        findViewById<MaterialButton>(R.id.guideButton).setOnClickListener {
+            showPasswordLockGuide()
         }
 
         // Backup
@@ -121,6 +115,14 @@ class SettingsActivity : BaseActivity() {
         }
 
         loadCategories()
+    }
+
+    private fun showPasswordLockGuide() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(getString(R.string.password_lock_title))
+            .setMessage(getString(R.string.password_lock_guide))
+            .setPositiveButton(getString(R.string.ok_btn)) { _, _ -> }
+            .show()
     }
 
     private fun loadCategories() {

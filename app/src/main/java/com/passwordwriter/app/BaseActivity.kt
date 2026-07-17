@@ -1,10 +1,12 @@
 package com.passwordwriter.app
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.passwordwriter.app.ThemeManager
+import java.util.Locale
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -21,5 +23,12 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         ThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
+    }
+
+    fun restartApp() {
+        val intent = Intent(this, this.javaClass)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
+        startActivity(intent)
+        finishAffinity()
     }
 }

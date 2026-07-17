@@ -43,8 +43,7 @@
 
         <activity
             android:name=".SettingsActivity"
-            android:exported="false"
-            android:theme="@style/Theme.PasswordWriter" />
+            android:exported="false" />
 
         <service
             android:name=".service.PasswordKeyboardService"

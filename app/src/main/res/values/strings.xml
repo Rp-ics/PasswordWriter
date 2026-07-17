@@ -105,6 +105,11 @@
     <string name="security_section">Security</string>
     <string name="password_lock_title">Password lock</string>
     <string name="password_lock_desc">Require master password to open app</string>
+    <string name="password_lock_guide">The master password protects all your saved passwords. It is required to unlock the app, export backups, and import data. Make sure to remember it, as it cannot be recovered.</string>
+
+    <!-- Settings -->
+    <string name="guide">Guide</string>
+    <string name="ok_btn">OK</string>
 
     <!-- Settings -->
     <string name="language_label">Language</string>

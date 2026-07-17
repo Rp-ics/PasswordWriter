@@ -94,6 +94,11 @@
     <string name="security_section">Sicurezza</string>
     <string name="password_lock_title">Blocco password</string>
     <string name="password_lock_desc">Richiedi la password principale per aprire l\'app</string>
+    <string name="password_lock_guide">La password principale protegge tutte le password salvate. È necessaria per sbloccare l\'app, esportare backup e importare dati. Assicurati di ricordarla, poiché non può essere recuperata.</string>
+
+    <!-- Settings -->
+    <string name="guide">Guida</string>
+    <string name="ok_btn">OK</string>
 
     <string name="language_label">Lingua</string>
     <string name="theme_label">Tema</string>
