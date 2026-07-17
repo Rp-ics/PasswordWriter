@@ -1,7 +1,6 @@
 package com.passwordwriter.app
 
 import android.os.Bundle
-import android.text.method.PasswordTransformationMethod
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.TextView
@@ -14,6 +13,7 @@ import com.google.android.material.slider.Slider
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.passwordwriter.app.data.CategoryManager
 import com.passwordwriter.app.data.PasswordEntity
 import com.passwordwriter.app.service.PasswordGenerator
 import kotlinx.coroutines.flow.first
@@ -55,7 +55,6 @@ class AddPasswordActivity : AppCompatActivity() {
         }
 
         saveButton.setOnClickListener { savePassword() }
-
         generateButton.setOnClickListener { showGeneratorDialog() }
     }
 
@@ -136,6 +135,9 @@ class AddPasswordActivity : AppCompatActivity() {
             return
         }
 
+        val catIcon = CategoryManager.getIcon(this, category)
+        val catColor = CategoryManager.getColor(this, category)
+
         lifecycleScope.launch {
             try {
                 val app = application as PasswordWriterApp
@@ -145,7 +147,9 @@ class AddPasswordActivity : AppCompatActivity() {
                     name = name,
                     username = username,
                     encryptedPassword = password,
-                    notes = ""
+                    notes = "",
+                    categoryColor = catColor,
+                    categoryIcon = catIcon
                 )
 
                 if (editId != null) {
