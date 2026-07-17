@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.passwordwriter.app.auth.AuthManager
 import com.passwordwriter.app.data.CryptoManager
 import com.passwordwriter.app.data.PasswordRepository
 
-class SetupActivity : AppCompatActivity() {
+class SetupActivity : BaseActivity() {
 
     private lateinit var authManager: AuthManager
     private lateinit var passwordInput: TextInputEditText
@@ -21,7 +20,6 @@ class SetupActivity : AppCompatActivity() {
     private lateinit var setupButton: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        ThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_setup)
 

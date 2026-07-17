@@ -8,7 +8,6 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,9 +21,8 @@ import com.passwordwriter.app.data.CategoryManager
 import com.passwordwriter.app.ui.adapters.CategoryAdapter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import java.util.Locale
 
-class SettingsActivity : AppCompatActivity() {
+class SettingsActivity : BaseActivity() {
 
     private lateinit var languageGroup: RadioGroup
     private lateinit var themeGroup: RadioGroup
@@ -59,7 +57,6 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        ThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
@@ -87,8 +84,7 @@ class SettingsActivity : AppCompatActivity() {
                 else -> "en"
             }
             getSharedPreferences("settings", MODE_PRIVATE).edit().putString("language", lang).apply()
-            setLocale(lang)
-            Toast.makeText(this, getString(R.string.applied), Toast.LENGTH_SHORT).show()
+            recreate()
         }
 
         // Theme
@@ -158,15 +154,9 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun showCategoryEditDialog(category: String) {
-        val currentIcon = CategoryManager.getIcon(this, category)
-        val currentColor = CategoryManager.getColor(this, category)
-
         val icons = CategoryManager.AVAILABLE_ICONS
         val iconNames = icons.map { it.replaceFirstChar { c -> c.uppercase() } }
-        val iconDrawables = icons.map { CategoryManager.getIconDrawableId(it) }
-
         val colors = CategoryManager.AVAILABLE_COLORS
-        val colorNames = colors.map { String.format("#%06X", 0xFFFFFF and it) }
 
         val items = arrayOf(
             getString(R.string.category_rename),
@@ -232,17 +222,8 @@ class SettingsActivity : AppCompatActivity() {
             .show()
     }
 
-    private fun setLocale(lang: String) {
-        val locale = Locale(lang)
-        Locale.setDefault(locale)
-        val config = Configuration()
-        config.setLocale(locale)
-        resources.updateConfiguration(config, resources.displayMetrics)
-        recreate()
-    }
-
     companion object {
-        fun start(activity: AppCompatActivity) {
+        fun start(activity: BaseActivity) {
             activity.startActivity(Intent(activity, SettingsActivity::class.java))
         }
     }

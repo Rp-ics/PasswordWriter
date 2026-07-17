@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.slider.Slider
@@ -19,7 +18,7 @@ import com.passwordwriter.app.service.PasswordGenerator
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
-class AddPasswordActivity : AppCompatActivity() {
+class AddPasswordActivity : BaseActivity() {
 
     private lateinit var categoryInput: android.widget.AutoCompleteTextView
     private lateinit var nameInput: TextInputEditText
@@ -32,7 +31,6 @@ class AddPasswordActivity : AppCompatActivity() {
     private var editId: Long? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        ThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_password)
 

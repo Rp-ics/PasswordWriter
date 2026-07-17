@@ -3,7 +3,6 @@ package com.passwordwriter.app
 import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import com.google.android.material.button.MaterialButton
@@ -12,7 +11,7 @@ import com.passwordwriter.app.auth.AuthManager
 import com.passwordwriter.app.data.CryptoManager
 import com.passwordwriter.app.data.PasswordRepository
 
-class LockScreenActivity : AppCompatActivity() {
+class LockScreenActivity : BaseActivity() {
 
     private lateinit var authManager: AuthManager
     private lateinit var passwordInput: TextInputEditText
@@ -21,7 +20,6 @@ class LockScreenActivity : AppCompatActivity() {
     private lateinit var biometricButton: MaterialButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        ThemeManager.applyTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lock_screen)
 
