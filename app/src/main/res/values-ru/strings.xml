@@ -84,6 +84,7 @@
     <string name="category_move_to_general">Переместить в Общее</string>
     <string name="category_delete_all">Удалить всё</string>
     <string name="category_manage">Управление категориями</string>
+    <string name="category_custom_color">Свой цвет</string>
 
     <string name="theme_section">Тема</string>
     <string name="theme_dark">Тёмная</string>

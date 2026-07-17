@@ -1,10 +1,10 @@
 package com.passwordwriter.app
 
-import android.content.Context
 import android.content.Intent
-import android.content.res.Configuration
 import android.os.Bundle
+import android.widget.ArrayAdapter
 import android.widget.RadioGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -84,7 +84,7 @@ class SettingsActivity : BaseActivity() {
                 else -> "en"
             }
             getSharedPreferences("settings", MODE_PRIVATE).edit().putString("language", lang).apply()
-            recreate()
+            restartApp()
         }
 
         // Theme
@@ -101,7 +101,7 @@ class SettingsActivity : BaseActivity() {
                 else -> "dark"
             }
             ThemeManager.saveTheme(this, theme)
-            recreate()
+            restartApp()
         }
 
         // Password lock
@@ -177,23 +177,59 @@ class SettingsActivity : BaseActivity() {
     }
 
     private fun showIconPicker(category: String, icons: List<String>, names: List<String>) {
+        val adapter = object : ArrayAdapter<String>(this, android.R.layout.activity_list_item, android.R.id.text1, names) {
+            override fun getView(position: Int, convertView: android.view.View?, parent: android.view.ViewGroup): android.view.View {
+                val view = super.getView(position, convertView, parent)
+                view.findViewById<android.widget.TextView>(android.R.id.text1).apply {
+                    val drawableId = CategoryManager.getIconDrawableId(icons[position])
+                    setCompoundDrawablesWithIntrinsicBounds(drawableId, 0, 0, 0)
+                    compoundDrawablePadding = 16
+                }
+                return view
+            }
+        }
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.category_choose_icon))
-            .setItems(names.toTypedArray()) { _, which ->
+            .setAdapter(adapter) { _, which ->
                 CategoryManager.setIcon(this, category, icons[which])
                 loadCategories()
             }
             .show()
     }
 
-    private fun showColorPicker(category: String, colors: List<Int>) {
-        val colorNames = colors.map { String.format("#%06X", 0xFFFFFF and it) }
+    private fun showColorPicker(category: String, defaultColors: List<Int>) {
+        val names = defaultColors.map { c -> String.format("#%06X", 0xFFFFFF and c) } + getString(R.string.category_custom_color)
+        val colors = defaultColors.map { c -> c } + listOf(0)
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.category_choose_color))
-            .setItems(colorNames.toTypedArray()) { _, which ->
-                CategoryManager.setColor(this, category, colors[which])
-                loadCategories()
+            .setItems(names.toTypedArray()) { _, which ->
+                if (which == colors.lastIndex) {
+                    showCustomColorPicker(category)
+                } else {
+                    CategoryManager.setColor(this, category, colors[which])
+                    loadCategories()
+                }
             }
+            .show()
+    }
+
+    private fun showCustomColorPicker(category: String) {
+        val input = TextInputEditText(this)
+        input.hint = "#FF5722"
+        AlertDialog.Builder(this)
+            .setTitle(getString(R.string.category_custom_color))
+            .setView(input)
+            .setPositiveButton(getString(R.string.save_btn)) { _, _ ->
+                val hex = input.text?.toString()?.trim() ?: ""
+                try {
+                    val color = android.graphics.Color.parseColor(if (hex.startsWith("#")) hex else "#$hex")
+                    CategoryManager.setColor(this, category, color)
+                    loadCategories()
+                } catch (e: Exception) {
+                    Toast.makeText(this, getString(R.string.error_generic, e.message), Toast.LENGTH_SHORT).show()
+                }
+            }
+            .setNegativeButton(getString(R.string.cancel_btn), null)
             .show()
     }
 

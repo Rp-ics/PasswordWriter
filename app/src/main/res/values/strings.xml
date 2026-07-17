@@ -93,6 +93,7 @@
     <string name="category_move_to_general">Move to General</string>
     <string name="category_delete_all">Delete all</string>
     <string name="category_manage">Manage categories</string>
+    <string name="category_custom_color">Custom color</string>
 
     <!-- Theme -->
     <string name="theme_section">Theme</string>

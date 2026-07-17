@@ -84,6 +84,7 @@
     <string name="category_move_to_general">Sposta in Generale</string>
     <string name="category_delete_all">Elimina tutto</string>
     <string name="category_manage">Gestisci categorie</string>
+    <string name="category_custom_color">Colore personalizzato</string>
 
     <string name="theme_section">Tema</string>
     <string name="theme_dark">Scuro</string>
