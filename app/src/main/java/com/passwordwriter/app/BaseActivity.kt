@@ -13,7 +13,12 @@ abstract class BaseActivity : AppCompatActivity() {
     override fun attachBaseContext(newBase: Context) {
         val lang = newBase.getSharedPreferences("settings", MODE_PRIVATE)
             .getString("language", "en") ?: "en"
-        val locale = Locale(lang)
+        val locale = when (lang) {
+            "es" -> Locale("es", "ES")
+            "it" -> Locale("it", "IT")
+            "ru" -> Locale("ru", "RU")
+            else -> Locale("en", "US")
+        }
         Locale.setDefault(locale)
         val config = Configuration(newBase.resources.configuration)
         config.setLocale(locale)

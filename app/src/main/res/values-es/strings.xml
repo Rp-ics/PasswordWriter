@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PasswordWriter</string>
+    <string name="main_title">Mis Contraseñas</string>
+    <string name="add_password">Añadir Contraseña</string>
+    <string name="add_title">Nueva Contraseña</string>
+    <string name="edit_title">Editar Contraseña</string>
+    <string name="settings">Ajustes</string>
+
+    <!-- Setup -->
+    <string name="setup_title">Crear Contraseña Principal</string>
+    <string name="setup_hint">Establece una contraseña maestra para proteger tus datos</string>
+    <string name="setup_confirm">Confirmar contraseña maestra</string>
+    <string name="setup_short">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="setup_mismatch">Las contraseñas no coinciden</string>
+    <string name="setup_btn">Crear</string>
+
+    <!-- Lock screen -->
+    <string name="lock_title">Introducir Contraseña Principal</string>
+    <string name="lock_btn">Desbloquear</string>
+    <string name="lock_wrong">Contraseña incorrecta</string>
+    <string name="unlock_with_biometric">Desbloquear con huella</string>
+
+    <!-- Labels -->
+    <string name="label_category">Categoría</string>
+    <string name="category_label">Categoría</string>
+    <string name="label_name">Nombre / URL</string>
+    <string name="label_username">Usuario / Email</string>
+    <string name="label_password">Contraseña</string>
+    <string name="rename_category">Renombrar categoría</string>
+    <string name="label_notes">Notas (opcional)</string>
+    <string name="save_btn">Guardar</string>
+    <string name="delete_btn">Eliminar</string>
+    <string name="cancel_btn">Cancelar</string>
+    <string name="close_btn">Cerrar</string>
+
+    <!-- Keyboard -->
+    <string name="keyboard_setup_title">Teclado PasswordWriter</string>
+    <string name="keyboard_status_enabled">Teclado activo</string>
+    <string name="keyboard_status_disabled">Teclado no activo</string>
+    <string name="keyboard_setup_btn">Configurar teclado</string>
+    <string name="keyboard_instructions">1. Toca el botón abajo\n2. Activa PasswordWriter\n3. En un campo de texto, selecciona PasswordWriter como teclado</string>
+    <string name="keyboard_pick_password">Seleccionar contraseña</string>
+    <string name="keyboard_back">Atrás</string>
+
+    <!-- Actions -->
+    <string name="action_copy">Copiar contraseña</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_delete">Eliminar</string>
+    <string name="action_generate">Generar</string>
+    <string name="action_use">Usar</string>
+    <string name="action_search">Buscar</string>
+    <string name="action_all_passwords">Todas las contraseñas</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_confirm_delete_title">¿Eliminar %1$s?</string>
+    <string name="dialog_confirm_delete_msg">Esta acción no puede ser anulada.</string>
+    <string name="dialog_delete_password">Eliminar</string>
+    <string name="dialog_decrypt_error">Error de descifrado</string>
+    <string name="dialog_no_passwords">No hay contraseñas guardadas</string>
+    <string name="dialog_empty_category">No hay contraseñas en %1$s</string>
+    <string name="password_copied">¡Contraseña copiada!</string>
+    <string name="password_written">Contraseña escrita</string>
+
+    <!-- Generator -->
+    <string name="generator_title">Generador de Contraseñas</string>
+    <string name="generator_length">Longitud: %1$d</string>
+    <string name="generator_uppercase">Mayúsculas</string>
+    <string name="generator_lowercase">Minúsculas</string>
+    <string name="generator_numbers">Números</string>
+    <string name="generator_symbols">Símbolos</string>
+    <string name="generator_generate">Generar</string>
+
+    <!-- Backup -->
+    <string name="backup_section">Copia de Seguridad</string>
+    <string name="backup_export">Exportar copia de seguridad (.pwb)</string>
+    <string name="backup_import">Importar copia de seguridad</string>
+    <string name="backup_exported">Copia de seguridad exportada correctamente</string>
+    <string name="backup_imported">Copia de seguridad importada correctamente</string>
+    <string name="backup_import_prompt">Introducir contraseña maestra para descifrar copia de seguridad</string>
+    <string name="backup_wrong_password">Contraseña maestra incorrecta</string>
+    <string name="backup_export_error">Exportación fallida: %1$s</string>
+    <string name="backup_import_error">Importación fallida: %1$s</string>
+
+    <!-- Categories -->
+    <string name="categories_title">Categorías</string>
+    <string name="category_general">General</string>
+    <string name="category_rename">Renombrar categoría</string>
+    <string name="category_rename_hint">Nuevo nombre</string>
+    <string name="category_choose_icon">Elegir icono</string>
+    <string name="category_choose_color">Elegir color</string>
+    <string name="category_delete_options">¿Qué hacer con las contraseñas en esta categoría?</string>
+    <string name="category_move_to_general">Mover a General</string>
+    <string name="category_delete_all">Eliminar todo</string>
+    <string name="category_manage">Administrar categorías</string>
+    <string name="category_custom_color">Color personalizado</string>
+
+    <!-- Theme -->
+    <string name="theme_section">Tema</string>
+    <string name="theme_dark">Oscuro</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_vintage">Vintage</string>
+    <string name="theme_blue">Azul</string>
+
+    <!-- Security -->
+    <string name="security_section">Seguridad</string>
+    <string name="password_lock_title">Bloqueo por contraseña</string>
+    <string name="password_lock_desc">Requiere la contraseña principal para abrir la app</string>
+    <string name="password_lock_guide">La contraseña principal protege todas las contraseñas guardadas. Es necesaria para desbloquear la app, exportar copias de seguridad e importar datos. Asegúrate de recordarla, ya que no puede ser recuperada.</string>
+
+    <!-- Settings -->
+    <string name="language_label">Idioma</string>
+    <string name="theme_label">Tema</string>
+    <string name="backup_label">Copia de seguridad</string>
+    <string name="action_export">Exportar copia de seguridad</string>
+    <string name="action_import">Importar copia de seguridad</string>
+    <string name="export_success">Copia de seguridad exportada</string>
+    <string name="import_success">Copia de seguridad importada</string>
+    <string name="applied">Aplicado</string>
+    <string name="delete_category">Eliminar categoría</string>
+    <string name="dialog_delete_category">Eliminar</string>
+    <string name="generator_length_default">Longitud: 16</string>
+    <string name="generator_upper">Mayúsculas (A-Z)</string>
+    <string name="generator_lower">Minúsculas (a-z)</string>
+    <string name="generator_digits">Números (0-9)</string>
+    <string name="app_info_name">PasswordWriter v3.0</string>
+    <string name="app_info_desc">100% sin conexión. Cifrado AES-256-GCM.</string>
+
+    <!-- Behavior -->
+    <string name="behavior_section">Comportamiento</string>
+    <string name="countdown_title">Tiempo de espera (segundos)</string>
+    <string name="countdown_desc">No se usa en modo teclado (escritura instantánea)</string>
+    <string name="typing_in">Escribiendo en %d segundos…</string>
+    <string name="countdown_cancel">Cancelar</string>
+    <string name="password_copied_old">Contraseña copiada al portapapeles</string>
+
+    <!-- Search -->
+    <string name="search_no_results">No hay resultados para "%1$s"</string>
+
+    <!-- Errors -->
+    <string name="error_generic">Error: %1$s</string>
+    <string name="error_init">Error de inicialización</string>
+
+    <!-- Guide -->
+    <string name="guide">Guía</string>
+    <string name="ok_btn">OK</string>
+
+    <!-- Old (kept for compatibility) -->
+    <string name="type_service_description">Usado solo para escribir contraseñas en campos de texto cuando seleccionas una contraseña del teclado. PasswordWriter no recopila datos, no tiene acceso a internet, y no memoriza lo que escribes. 100% sin conexión.</string>
+    <string name="no_passwords">No hay contraseñas. ¡Añadir una!</string>
+    <string name="select_password">Seleccionar Contraseña</string>
+</resources>

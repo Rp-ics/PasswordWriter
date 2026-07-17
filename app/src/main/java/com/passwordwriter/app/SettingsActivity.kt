@@ -73,27 +73,30 @@ class SettingsActivity : BaseActivity() {
             else -> languageGroup.check(R.id.langEnglish)
         }
 
-        languageGroup.setOnCheckedChangeListener { _, checkedId ->
-            val lang = when (checkedId) {
-                R.id.langItalian -> "it"
-                R.id.langRussian -> "ru"
-                else -> "en"
-            }
-            getSharedPreferences("settings", MODE_PRIVATE).edit().putString("language", lang).apply()
-            restartApp()
-        }
+         languageGroup.setOnCheckedChangeListener { _, checkedId ->
+             val lang = when (checkedId) {
+                 R.id.langItalian -> "it"
+                 R.id.langRussian -> "ru"
+                 R.id.langSpanish -> "es"
+                 else -> "en"
+             }
+             getSharedPreferences("settings", MODE_PRIVATE).edit().putString("language", lang).apply()
+             restartApp()
+         }
 
-        // Theme
-        when (ThemeManager.getTheme(this)) {
+         // Theme
+         when (ThemeManager.getTheme(this)) {
             "light" -> themeGroup.check(R.id.themeLight)
             "vintage" -> themeGroup.check(R.id.themeVintage)
+            "blue" -> themeGroup.check(R.id.themeBlue)
             else -> themeGroup.check(R.id.themeDark)
-        }
+         }
 
         themeGroup.setOnCheckedChangeListener { _, checkedId ->
             val theme = when (checkedId) {
                 R.id.themeLight -> "light"
                 R.id.themeVintage -> "vintage"
+                R.id.themeBlue -> "blue"
                 else -> "dark"
             }
             ThemeManager.saveTheme(this, theme)

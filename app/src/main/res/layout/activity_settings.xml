@@ -44,6 +44,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Русский" />
+
+            <RadioButton
+                android:id="@+id/langSpanish"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Español" />
         </RadioGroup>
 
         <!-- Theme -->
@@ -55,30 +61,29 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
-        <RadioGroup
-            android:id="@+id/themeGroup"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:orientation="vertical">
-
-            <RadioButton
+<RadioButton
                 android:id="@+id/themeDark"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/theme_dark" />
+                android:text="@string(theme_dark)" />
 
             <RadioButton
                 android:id="@+id/themeLight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/theme_light" />
+                android:text="@string(theme_light)" />
 
             <RadioButton
                 android:id="@+id/themeVintage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/theme_vintage" />
+                android:text="@string(theme_vintage)" />
+
+            <RadioButton
+                android:id="@+id/themeBlue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string(theme_blue)" />
         </RadioGroup>
 
 <!-- Security -->
