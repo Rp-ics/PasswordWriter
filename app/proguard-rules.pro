@@ -1,0 +1,3 @@
+-keepclassmembers class com.passwordwriter.app.data.PasswordEntity { *; }
+-keep class * extends androidx.room.RoomDatabase
+-keep class * extends android.accessibilityservice.AccessibilityService

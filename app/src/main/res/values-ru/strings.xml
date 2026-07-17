@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PasswordWriter</string>
+    <string name="main_title">Мои пароли</string>
+    <string name="add_password">Добавить пароль</string>
+    <string name="add_title">Новый пароль</string>
+    <string name="edit_title">Редактировать пароль</string>
+    <string name="settings">Настройки</string>
+
+    <string name="setup_title">Создать мастер-пароль</string>
+    <string name="setup_hint">Установите мастер-пароль для защиты данных</string>
+    <string name="setup_confirm">Подтвердите мастер-пароль</string>
+    <string name="setup_short">Пароль должен быть не менее 6 символов</string>
+    <string name="setup_mismatch">Пароли не совпадают</string>
+    <string name="setup_btn">Создать</string>
+
+    <string name="lock_title">Введите мастер-пароль</string>
+    <string name="lock_btn">Разблокировать</string>
+    <string name="lock_wrong">Неверный пароль</string>
+    <string name="unlock_with_biometric">Разблокировать отпечатком</string>
+
+    <string name="label_category">Категория</string>
+    <string name="category_label">Категория</string>
+    <string name="rename_category">Переименовать категорию</string>
+    <string name="label_name">Название / URL</string>
+    <string name="label_username">Имя / Email</string>
+    <string name="label_password">Пароль</string>
+    <string name="label_notes">Заметки (опционально)</string>
+    <string name="save_btn">Сохранить</string>
+    <string name="delete_btn">Удалить</string>
+    <string name="cancel_btn">Отмена</string>
+    <string name="close_btn">Закрыть</string>
+
+    <string name="keyboard_setup_title">Клавиатура PasswordWriter</string>
+    <string name="keyboard_status_enabled">Клавиатура активна ✓</string>
+    <string name="keyboard_status_disabled">Клавиатура не активна</string>
+    <string name="keyboard_setup_btn">Настроить клавиатуру</string>
+    <string name="keyboard_instructions">1. Нажмите кнопку ниже\n2. Включите PasswordWriter\n3. В поле ввода выберите PasswordWriter как клавиатуру</string>
+    <string name="keyboard_pick_password">Выбрать пароль</string>
+    <string name="keyboard_back">Назад</string>
+
+    <string name="action_copy">Копировать пароль</string>
+    <string name="action_edit">Редактировать</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_generate">Сгенерировать</string>
+    <string name="action_use">Использовать</string>
+    <string name="action_search">Поиск</string>
+    <string name="action_all_passwords">Все пароли</string>
+
+    <string name="dialog_confirm_delete_title">Удалить %1$s?</string>
+    <string name="dialog_confirm_delete_msg">Это действие нельзя отменить.</string>
+    <string name="dialog_delete_password">Удалить</string>
+    <string name="dialog_decrypt_error">Ошибка расшифровки</string>
+    <string name="dialog_no_passwords">Нет сохранённых паролей</string>
+    <string name="dialog_empty_category">Нет паролей в %1$s</string>
+    <string name="password_copied">Пароль скопирован!</string>
+    <string name="password_written">Пароль введён</string>
+
+    <string name="generator_title">Генератор паролей</string>
+    <string name="generator_length">Длина: %1$d</string>
+    <string name="generator_uppercase">Заглавные</string>
+    <string name="generator_lowercase">Строчные</string>
+    <string name="generator_numbers">Цифры</string>
+    <string name="generator_symbols">Символы</string>
+    <string name="generator_generate">Сгенерировать</string>
+
+    <string name="backup_section">Резервное копирование</string>
+    <string name="backup_export">Экспорт (.pwb)</string>
+    <string name="backup_import">Импорт</string>
+    <string name="backup_exported">Резервная копия экспортирована</string>
+    <string name="backup_imported">Резервная копия импортирована</string>
+    <string name="backup_import_prompt">Введите мастер-пароль для расшифровки</string>
+    <string name="backup_wrong_password">Неверный мастер-пароль</string>
+    <string name="backup_export_error">Ошибка экспорта: %1$s</string>
+    <string name="backup_import_error">Ошибка импорта: %1$s</string>
+
+    <string name="categories_title">Категории</string>
+    <string name="category_general">Общее</string>
+    <string name="category_rename">Переименовать категорию</string>
+    <string name="category_rename_hint">Новое название</string>
+    <string name="category_choose_icon">Выберите иконку</string>
+    <string name="category_choose_color">Выберите цвет</string>
+    <string name="category_delete_options">Что делать с паролями в этой категории?</string>
+    <string name="category_move_to_general">Переместить в Общее</string>
+    <string name="category_delete_all">Удалить всё</string>
+    <string name="category_manage">Управление категориями</string>
+
+    <string name="theme_section">Тема</string>
+    <string name="theme_dark">Тёмная</string>
+    <string name="theme_light">Светлая</string>
+    <string name="theme_vintage">Винтаж</string>
+
+    <string name="security_section">Безопасность</string>
+    <string name="password_lock_title">Блокировка паролем</string>
+    <string name="password_lock_desc">Требовать мастер-пароль при открытии</string>
+
+    <string name="theme_label">Тема</string>
+    <string name="backup_label">Резервное копирование</string>
+    <string name="action_export">Экспорт</string>
+    <string name="action_import">Импорт</string>
+    <string name="export_success">Экспорт выполнен</string>
+    <string name="import_success">Импорт выполнен</string>
+    <string name="applied">Применено</string>
+    <string name="delete_category">Удалить категорию</string>
+    <string name="dialog_delete_category">Удалить</string>
+    <string name="generator_length_default">Длина: 16</string>
+    <string name="generator_upper">Заглавные (A-Z)</string>
+    <string name="generator_lower">Строчные (a-z)</string>
+    <string name="generator_digits">Цифры (0-9)</string>
+    <string name="app_info_name">PasswordWriter v3.0</string>
+    <string name="app_info_desc">100% офлайн. Зашифровано AES-256-GCM.</string>
+
+    <string name="behavior_section">Поведение</string>
+    <string name="countdown_title">Обратный отсчёт (секунды)</string>
+    <string name="countdown_desc">Не используется в режиме клавиатуры</string>
+    <string name="typing_in">Ввод через %d секунд…</string>
+    <string name="countdown_cancel">Отмена</string>
+    <string name="password_copied_old">Пароль скопирован в буфер</string>
+
+    <string name="search_no_results">Нет результатов для \"%1$s\"</string>
+
+    <string name="error_generic">Ошибка: %1$s</string>
+    <string name="error_init">Ошибка инициализации</string>
+
+    <string name="type_service_description">Используется только для ввода паролей в текстовые поля. PasswordWriter не собирает данные, не имеет доступа к интернету и не сохраняет вводимую информацию. 100% офлайн.</string>
+    <string name="no_passwords">Нет паролей. Добавьте!</string>
+    <string name="select_password">Выберите пароль</string>
+</resources>

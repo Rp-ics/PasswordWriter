@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PasswordWriter</string>
+    <string name="main_title">Le mie Password</string>
+    <string name="add_password">Aggiungi Password</string>
+    <string name="add_title">Nuova Password</string>
+    <string name="edit_title">Modifica Password</string>
+    <string name="settings">Impostazioni</string>
+
+    <string name="setup_title">Crea Password Principale</string>
+    <string name="setup_hint">Imposta una password principale per proteggere i tuoi dati</string>
+    <string name="setup_confirm">Conferma password principale</string>
+    <string name="setup_short">La password deve essere di almeno 6 caratteri</string>
+    <string name="setup_mismatch">Le password non coincidono</string>
+    <string name="setup_btn">Crea</string>
+
+    <string name="lock_title">Inserisci Password Principale</string>
+    <string name="lock_btn">Sblocca</string>
+    <string name="lock_wrong">Password errata</string>
+    <string name="unlock_with_biometric">Sblocca con impronta</string>
+
+    <string name="label_category">Categoria</string>
+    <string name="category_label">Categoria</string>
+    <string name="rename_category">Rinomina categoria</string>
+    <string name="label_name">Nome / URL</string>
+    <string name="label_username">Username / Email</string>
+    <string name="label_password">Password</string>
+    <string name="label_notes">Note (opzionale)</string>
+    <string name="save_btn">Salva</string>
+    <string name="delete_btn">Elimina</string>
+    <string name="cancel_btn">Annulla</string>
+    <string name="close_btn">Chiudi</string>
+
+    <string name="keyboard_setup_title">Tastiera PasswordWriter</string>
+    <string name="keyboard_status_enabled">Tastiera attiva ✓</string>
+    <string name="keyboard_status_disabled">Tastiera non attiva</string>
+    <string name="keyboard_setup_btn">Configura tastiera</string>
+    <string name="keyboard_instructions">1. Tocca il pulsante qui sotto\n2. Attiva PasswordWriter\n3. In un campo di testo, seleziona PasswordWriter come tastiera</string>
+    <string name="keyboard_pick_password">Scegli password</string>
+    <string name="keyboard_back">Indietro</string>
+
+    <string name="action_copy">Copia password</string>
+    <string name="action_edit">Modifica</string>
+    <string name="action_delete">Elimina</string>
+    <string name="action_generate">Genera</string>
+    <string name="action_use">Usa</string>
+    <string name="action_search">Cerca</string>
+    <string name="action_all_passwords">Tutte le password</string>
+
+    <string name="dialog_confirm_delete_title">Eliminare %1$s?</string>
+    <string name="dialog_confirm_delete_msg">Questa azione non può essere annullata.</string>
+    <string name="dialog_delete_password">Elimina</string>
+    <string name="dialog_decrypt_error">Errore decifratura</string>
+    <string name="dialog_no_passwords">Nessuna password salvata</string>
+    <string name="dialog_empty_category">Nessuna password in %1$s</string>
+    <string name="password_copied">Password copiata!</string>
+    <string name="password_written">Password scritta</string>
+
+    <string name="generator_title">Generatore Password</string>
+    <string name="generator_length">Lunghezza: %1$d</string>
+    <string name="generator_uppercase">Maiuscole</string>
+    <string name="generator_lowercase">Minuscole</string>
+    <string name="generator_numbers">Numeri</string>
+    <string name="generator_symbols">Simboli</string>
+    <string name="generator_generate">Genera</string>
+
+    <string name="backup_section">Backup</string>
+    <string name="backup_export">Esporta backup (.pwb)</string>
+    <string name="backup_import">Importa backup</string>
+    <string name="backup_exported">Backup esportato con successo</string>
+    <string name="backup_imported">Backup importato con successo</string>
+    <string name="backup_import_prompt">Inserisci la password principale per decifrare il backup</string>
+    <string name="backup_wrong_password">Password principale errata</string>
+    <string name="backup_export_error">Esportazione fallita: %1$s</string>
+    <string name="backup_import_error">Importazione fallita: %1$s</string>
+
+    <string name="categories_title">Categorie</string>
+    <string name="category_general">Generale</string>
+    <string name="category_rename">Rinomina categoria</string>
+    <string name="category_rename_hint">Nuovo nome</string>
+    <string name="category_choose_icon">Scegli icona</string>
+    <string name="category_choose_color">Scegli colore</string>
+    <string name="category_delete_options">Cosa fare con le password in questa categoria?</string>
+    <string name="category_move_to_general">Sposta in Generale</string>
+    <string name="category_delete_all">Elimina tutto</string>
+    <string name="category_manage">Gestisci categorie</string>
+
+    <string name="theme_section">Tema</string>
+    <string name="theme_dark">Scuro</string>
+    <string name="theme_light">Chiaro</string>
+    <string name="theme_vintage">Vintage</string>
+
+    <string name="security_section">Sicurezza</string>
+    <string name="password_lock_title">Blocco password</string>
+    <string name="password_lock_desc">Richiedi la password principale per aprire l\'app</string>
+
+    <string name="theme_label">Tema</string>
+    <string name="backup_label">Backup</string>
+    <string name="action_export">Esporta backup</string>
+    <string name="action_import">Importa backup</string>
+    <string name="export_success">Backup esportato</string>
+    <string name="import_success">Backup importato</string>
+    <string name="applied">Applicato</string>
+    <string name="delete_category">Elimina categoria</string>
+    <string name="dialog_delete_category">Elimina</string>
+    <string name="generator_length_default">Lunghezza: 16</string>
+    <string name="generator_upper">Maiuscole (A-Z)</string>
+    <string name="generator_lower">Minuscole (a-z)</string>
+    <string name="generator_digits">Numeri (0-9)</string>
+    <string name="app_info_name">PasswordWriter v3.0</string>
+    <string name="app_info_desc">100% offline. Crittografato AES-256-GCM.</string>
+
+    <string name="behavior_section">Comportamento</string>
+    <string name="countdown_title">Tempo di attesa (secondi)</string>
+    <string name="countdown_desc">Non usato in modalità tastiera (scrittura istantanea)</string>
+    <string name="typing_in">Scrivo tra %d secondi…</string>
+    <string name="countdown_cancel">Annulla</string>
+    <string name="password_copied_old">Password copiata negli appunti</string>
+
+    <string name="search_no_results">Nessun risultato per \"%1$s\"</string>
+
+    <string name="error_generic">Errore: %1$s</string>
+    <string name="error_init">Errore di inizializzazione</string>
+
+    <string name="type_service_description">Usato solo per scrivere password nei campi di testo quando selezioni una password dalla tastiera. PasswordWriter non raccoglie dati, non ha accesso a internet, e non memorizza ciò che scrivi. 100% offline.</string>
+    <string name="no_passwords">Nessuna password. Aggiungine una!</string>
+    <string name="select_password">Seleziona Password</string>
+</resources>

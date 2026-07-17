@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/genLengthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/generator_length_default" />
+
+    <com.google.android.material.slider.Slider
+        android:id="@+id/genLengthSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:valueFrom="4"
+        android:valueTo="64"
+        android:value="16" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/genUpperSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/generator_upper"
+        android:checked="true"
+        android:layout_marginBottom="8dp" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/genLowerSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/generator_lower"
+        android:checked="true"
+        android:layout_marginBottom="8dp" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/genDigitSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/generator_digits"
+        android:checked="true"
+        android:layout_marginBottom="8dp" />
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/genSymbolSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/generator_symbols"
+        android:checked="false"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/genGenerateBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/action_generate"
+        android:layout_marginBottom="12dp" />
+
+    <TextView
+        android:id="@+id/genPreviewText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:background="@android:drawable/editbox_background" />
+
+</LinearLayout>

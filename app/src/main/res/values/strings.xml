@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PasswordWriter</string>
+    <string name="main_title">My Passwords</string>
+    <string name="add_password">Add Password</string>
+    <string name="add_title">New Password</string>
+    <string name="edit_title">Edit Password</string>
+    <string name="settings">Settings</string>
+
+    <!-- Setup -->
+    <string name="setup_title">Create Master Password</string>
+    <string name="setup_hint">Set a master password to protect your data</string>
+    <string name="setup_confirm">Confirm master password</string>
+    <string name="setup_short">Password must be at least 6 characters</string>
+    <string name="setup_mismatch">Passwords do not match</string>
+    <string name="setup_btn">Create</string>
+
+    <!-- Lock screen -->
+    <string name="lock_title">Enter Master Password</string>
+    <string name="lock_btn">Unlock</string>
+    <string name="lock_wrong">Wrong password</string>
+    <string name="unlock_with_biometric">Unlock with fingerprint</string>
+
+    <!-- Labels -->
+    <string name="label_category">Category</string>
+    <string name="category_label">Category</string>
+    <string name="label_name">Name / URL</string>
+    <string name="label_username">Username / Email</string>
+    <string name="label_password">Password</string>
+    <string name="rename_category">Rename category</string>
+    <string name="label_notes">Notes (optional)</string>
+    <string name="save_btn">Save</string>
+    <string name="delete_btn">Delete</string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="close_btn">Close</string>
+
+    <!-- Keyboard -->
+    <string name="keyboard_setup_title">PasswordWriter Keyboard</string>
+    <string name="keyboard_status_enabled">Keyboard active ✓</string>
+    <string name="keyboard_status_disabled">Keyboard not active</string>
+    <string name="keyboard_setup_btn">Configure keyboard</string>
+    <string name="keyboard_instructions">1. Tap the button below\n2. Enable PasswordWriter\n3. Tap a text field → select PasswordWriter as keyboard</string>
+    <string name="keyboard_pick_password">Pick password</string>
+    <string name="keyboard_back">Back</string>
+
+    <!-- Actions -->
+    <string name="action_copy">Copy password</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_generate">Generate</string>
+    <string name="action_use">Use</string>
+    <string name="action_search">Search</string>
+    <string name="action_all_passwords">All passwords</string>
+
+    <!-- Dialogs -->
+    <string name="dialog_confirm_delete_title">Delete %1$s?</string>
+    <string name="dialog_confirm_delete_msg">This action cannot be undone.</string>
+    <string name="dialog_delete_password">Delete</string>
+    <string name="dialog_decrypt_error">Decryption error</string>
+    <string name="dialog_no_passwords">No passwords saved</string>
+    <string name="dialog_empty_category">No passwords in %1$s</string>
+    <string name="password_copied">Password copied!</string>
+    <string name="password_written">Password written</string>
+
+    <!-- Generator -->
+    <string name="generator_title">Password Generator</string>
+    <string name="generator_length">Length: %1$d</string>
+    <string name="generator_uppercase">Uppercase</string>
+    <string name="generator_lowercase">Lowercase</string>
+    <string name="generator_numbers">Numbers</string>
+    <string name="generator_symbols">Symbols</string>
+    <string name="generator_generate">Generate</string>
+
+    <!-- Backup -->
+    <string name="backup_section">Backup</string>
+    <string name="backup_export">Export backup (.pwb)</string>
+    <string name="backup_import">Import backup</string>
+    <string name="backup_exported">Backup exported successfully</string>
+    <string name="backup_imported">Backup imported successfully</string>
+    <string name="backup_import_prompt">Enter master password to decrypt backup</string>
+    <string name="backup_wrong_password">Wrong master password</string>
+    <string name="backup_export_error">Export failed: %1$s</string>
+    <string name="backup_import_error">Import failed: %1$s</string>
+
+    <!-- Categories -->
+    <string name="categories_title">Categories</string>
+    <string name="category_general">General</string>
+    <string name="category_rename">Rename category</string>
+    <string name="category_rename_hint">New name</string>
+    <string name="category_choose_icon">Choose icon</string>
+    <string name="category_choose_color">Choose color</string>
+    <string name="category_delete_options">What to do with passwords in this category?</string>
+    <string name="category_move_to_general">Move to General</string>
+    <string name="category_delete_all">Delete all</string>
+    <string name="category_manage">Manage categories</string>
+
+    <!-- Theme -->
+    <string name="theme_section">Theme</string>
+    <string name="theme_dark">Dark</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_vintage">Vintage</string>
+
+    <!-- Security -->
+    <string name="security_section">Security</string>
+    <string name="password_lock_title">Password lock</string>
+    <string name="password_lock_desc">Require master password to open app</string>
+
+    <!-- Settings -->
+    <string name="theme_label">Theme</string>
+    <string name="backup_label">Backup</string>
+    <string name="action_export">Export backup</string>
+    <string name="action_import">Import backup</string>
+    <string name="export_success">Backup exported</string>
+    <string name="import_success">Backup imported</string>
+    <string name="applied">Applied</string>
+    <string name="delete_category">Delete category</string>
+    <string name="dialog_delete_category">Delete</string>
+
+    <!-- Generator dialog -->
+    <string name="generator_length_default">Length: 16</string>
+    <string name="generator_upper">Uppercase (A-Z)</string>
+    <string name="generator_lower">Lowercase (a-z)</string>
+    <string name="generator_digits">Digits (0-9)</string>
+
+    <!-- App info -->
+    <string name="app_info_name">PasswordWriter v3.0</string>
+    <string name="app_info_desc">100% offline. AES-256-GCM encrypted.</string>
+
+    <!-- Countdown -->
+    <string name="behavior_section">Behavior</string>
+    <string name="countdown_title">Countdown (seconds)</string>
+    <string name="countdown_desc">Not used in keyboard mode (instant typing)</string>
+    <string name="typing_in">Typing in %d seconds…</string>
+    <string name="countdown_cancel">Cancel</string>
+    <string name="password_copied_old">Password copied to clipboard</string>
+
+    <!-- Search -->
+    <string name="search_no_results">No results for \"%1$s\"</string>
+
+    <!-- Errors -->
+    <string name="error_generic">Error: %1$s</string>
+    <string name="error_init">Initialization error</string>
+
+    <!-- Old (kept for compatibility) -->
+    <string name="type_service_description">Used only to type passwords into text fields when you select one from the keyboard. PasswordWriter does not collect data, has no internet access, and does not store what you type. 100% offline.</string>
+    <string name="no_passwords">No passwords. Add one!</string>
+    <string name="select_password">Select Password</string>
+</resources>

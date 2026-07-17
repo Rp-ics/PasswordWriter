@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.PasswordWriter" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/dark_primary</item>
+        <item name="colorOnPrimary">@color/dark_on_surface</item>
+        <item name="colorSecondary">@color/dark_secondary</item>
+        <item name="android:colorBackground">@color/dark_background</item>
+        <item name="colorSurface">@color/dark_surface</item>
+        <item name="colorOnSurface">@color/dark_on_surface</item>
+        <item name="android:statusBarColor">@color/dark_background</item>
+    </style>
+</resources>

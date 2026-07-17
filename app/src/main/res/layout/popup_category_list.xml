@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="280dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/popup_background">
+
+    <TextView
+        android:id="@+id/popupTitle"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:text="@string/select_password"
+        android:textAppearance="?attr/textAppearanceTitleMedium"
+        android:textColor="@color/on_surface"
+        android:background="@color/surface" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/popupRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="400dp"
+        android:clipToPadding="false" />
+
+    <TextView
+        android:id="@+id/countdownText"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:textColor="@color/secondary"
+        android:textAppearance="?attr/textAppearanceTitleLarge"
+        android:visibility="gone" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:text="@string/countdown_cancel"
+        android:visibility="gone"
+        style="@style/Widget.Material3.Button.TextButton" />
+
+</LinearLayout>
