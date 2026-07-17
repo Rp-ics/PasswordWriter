@@ -5,6 +5,7 @@ import android.content.ClipboardManager
 import android.content.Intent
 import android.os.Bundle
 import android.provider.Settings
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -87,8 +88,11 @@ class MainActivity : BaseActivity() {
             Settings.Secure.getString(contentResolver, Settings.Secure.ENABLED_INPUT_METHODS)
                 ?.contains(imeId) == true
         } catch (_: Exception) { false }
-        findViewById<TextView>(R.id.keyboardStatusText)?.text =
-            if (enabled) getString(R.string.keyboard_status_enabled) else getString(R.string.keyboard_status_disabled)
+
+        val keyboardCard = findViewById<View>(R.id.keyboardCard)
+        if (keyboardCard != null) {
+            keyboardCard.visibility = if (enabled) View.GONE else View.VISIBLE
+        }
     }
 
     private fun loadCategories() {

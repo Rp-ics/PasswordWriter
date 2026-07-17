@@ -52,10 +52,11 @@ class CategoryAdapter(
         val color = CategoryManager.getColor(context, category)
         if (color != 0) {
             holder.iconView.setColorFilter(color)
+            holder.nameText.setTextColor(color)
         } else {
-            holder.iconView.setColorFilter(
-                ContextCompat.getColor(context, R.color.on_surface)
-            )
+            val defaultColor = ContextCompat.getColor(context, R.color.on_surface)
+            holder.iconView.setColorFilter(defaultColor)
+            holder.nameText.setTextColor(defaultColor)
         }
     }
 

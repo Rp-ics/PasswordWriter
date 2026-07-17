@@ -2,7 +2,7 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#1E1E1E"
+    android:background="?attr/colorSurface"
     android:padding="8dp">
 
     <LinearLayout
@@ -15,19 +15,20 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PasswordWriter"
+            android:text="@string/keyboard_pick_password"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:textColor="#FFFFFF" />
+            android:textColor="?attr/colorOnSurface" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tocca il pulsante per scegliere una password"
+            android:text="@string/keyboard_instructions"
             android:textAlignment="center"
             android:textSize="12sp"
-            android:textColor="#AAAAAA"
+            android:textColor="?attr/colorOnSurface"
+            android:alpha="0.6"
             android:paddingTop="4dp"
             android:paddingBottom="12dp" />
 
@@ -35,10 +36,10 @@
             android:id="@+id/pickPasswordBtn"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:text="Scegli password"
+            android:text="@string/keyboard_pick_password"
             android:textSize="16sp"
-            android:backgroundTint="#6200EE"
-            android:textColor="#FFFFFF" />
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="?attr/colorOnPrimary" />
 
     </LinearLayout>
 
@@ -60,16 +61,16 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Scegli password"
+                android:text="@string/select_password"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="#FFFFFF" />
+                android:textColor="?attr/colorOnSurface" />
 
             <Button
                 android:id="@+id/backBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="32dp"
-                android:text="Indietro"
+                android:text="@string/keyboard_back"
                 android:textSize="12sp" />
 
         </LinearLayout>

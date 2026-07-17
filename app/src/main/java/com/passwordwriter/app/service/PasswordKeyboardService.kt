@@ -1,6 +1,9 @@
 package com.passwordwriter.app.service
 
+import android.content.res.Configuration
 import android.inputmethodservice.InputMethodService
+import android.view.ContextThemeWrapper
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -8,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.passwordwriter.app.PasswordWriterApp
 import com.passwordwriter.app.R
+import com.passwordwriter.app.ThemeManager
 import com.passwordwriter.app.ui.adapters.PasswordItemAdapter
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -15,6 +19,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 class PasswordKeyboardService : InputMethodService() {
 
@@ -23,10 +28,32 @@ class PasswordKeyboardService : InputMethodService() {
     override fun onCreate() {
         super.onCreate()
         PasswordWriterApp.instance.repository // ensure initialized
+        applyLocale()
+    }
+
+    @Suppress("DEPRECATION")
+    private fun applyLocale() {
+        val lang = getSharedPreferences("settings", MODE_PRIVATE)
+            .getString("language", "en") ?: "en"
+        val locale = Locale(lang)
+        Locale.setDefault(locale)
+        val config = Configuration(resources.configuration)
+        config.setLocale(locale)
+        resources.updateConfiguration(config, resources.displayMetrics)
+    }
+
+    private fun getThemeResId(): Int {
+        return when (ThemeManager.getTheme(this)) {
+            "light" -> R.style.Theme_PasswordWriter_Light
+            "vintage" -> R.style.Theme_PasswordWriter_Vintage
+            else -> R.style.Theme_PasswordWriter_Dark
+        }
     }
 
     override fun onCreateInputView(): View {
-        val view = layoutInflater.inflate(R.layout.keyboard_view, null)
+        val themedContext = ContextThemeWrapper(this, getThemeResId())
+        val inflater = LayoutInflater.from(themedContext)
+        val view = inflater.inflate(R.layout.keyboard_view, null)
 
         view.findViewById<Button>(R.id.pickPasswordBtn).setOnClickListener {
             showPasswordList(view)
@@ -51,7 +78,7 @@ class PasswordKeyboardService : InputMethodService() {
             val passwords = repo.getAllPasswords().first()
 
             if (passwords.isEmpty()) {
-                Toast.makeText(this@PasswordKeyboardService, "Nessuna password salvata", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@PasswordKeyboardService, getString(R.string.dialog_no_passwords), Toast.LENGTH_SHORT).show()
                 return@launch
             }
 
@@ -68,7 +95,7 @@ class PasswordKeyboardService : InputMethodService() {
             }
 
             if (items.isEmpty()) {
-                Toast.makeText(this@PasswordKeyboardService, "Errore decifratura", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@PasswordKeyboardService, getString(R.string.dialog_decrypt_error), Toast.LENGTH_SHORT).show()
                 return@launch
             }
 
@@ -90,6 +117,6 @@ class PasswordKeyboardService : InputMethodService() {
     private fun commitPassword(password: String) {
         val ic = currentInputConnection ?: return
         ic.commitText(password, 1)
-        Toast.makeText(this, "Password scritta", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, getString(R.string.password_written), Toast.LENGTH_SHORT).show()
     }
 }

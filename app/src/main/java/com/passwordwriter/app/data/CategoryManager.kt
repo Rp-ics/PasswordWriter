@@ -2,6 +2,7 @@ package com.passwordwriter.app.data
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
+import com.passwordwriter.app.R
 import org.json.JSONObject
 
 object CategoryManager {
@@ -36,19 +37,20 @@ object CategoryManager {
 
     fun getIconDrawableId(icon: String): Int {
         return when (icon) {
-            "social" -> android.R.drawable.ic_menu_myplaces
-            "email" -> android.R.drawable.ic_dialog_email
-            "finance" -> android.R.drawable.ic_menu_sort_by_size
-            "work" -> android.R.drawable.ic_menu_gallery
-            "shopping" -> android.R.drawable.ic_menu_my_calendar
-            "tech" -> android.R.drawable.ic_menu_compass
-            "entertainment" -> android.R.drawable.ic_menu_camera
-            "health" -> android.R.drawable.ic_menu_today
-            "education" -> android.R.drawable.ic_menu_edit
-            "games" -> android.R.drawable.ic_menu_gallery
-            "notes" -> android.R.drawable.ic_menu_agenda
-            "other" -> android.R.drawable.ic_menu_more
-            else -> android.R.drawable.ic_menu_compass
+            "general" -> R.drawable.ic_category_general
+            "social" -> R.drawable.ic_category_social
+            "email" -> R.drawable.ic_category_email
+            "finance" -> R.drawable.ic_category_finance
+            "work" -> R.drawable.ic_category_work
+            "shopping" -> R.drawable.ic_category_shopping
+            "tech" -> R.drawable.ic_category_tech
+            "entertainment" -> R.drawable.ic_category_entertainment
+            "health" -> R.drawable.ic_category_health
+            "education" -> R.drawable.ic_category_education
+            "games" -> R.drawable.ic_category_games
+            "notes" -> R.drawable.ic_category_notes
+            "other" -> R.drawable.ic_category_other
+            else -> R.drawable.ic_category_general
         }
     }
 
