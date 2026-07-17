@@ -93,6 +93,14 @@ class MainActivity : BaseActivity() {
         if (keyboardCard != null) {
             keyboardCard.visibility = if (enabled) View.GONE else View.VISIBLE
         }
+
+        findViewById<TextView>(R.id.keyboardStatusText)?.apply {
+            text = if (enabled) {
+                getString(R.string.keyboard_status_enabled)
+            } else {
+                getString(R.string.keyboard_instructions)
+            }
+        }
     }
 
     private fun loadCategories() {
